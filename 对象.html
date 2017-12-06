@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var obj1 = new Object();
+		obj1.name = 'lisi';
+		obj1.sayHello = function () {
+			
+		}
+
+
+		var obj2 = new Object();
+
+		obj2.name = obj1.name;
+
+		obj1.name = 'wangwu';
+
+		//alert(obj2.name);
+
+
+
+
+
+
+
+
+
+
+
+
+		//类：具有相同的属性和方法的对象的集合
+
+		function Person(uname, age){
+			this.name = uname;
+			this.age = age;
+			this.sayHello = function(){
+				alert(this.name);
+			};
+		}
+
+		var person1 = new Person('lisi', 34);//person1是具体的实例对象
+		alert(person1.name);
+
+		var person2 = new Person('wangwu', 25);
+		alert(person2.name);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
