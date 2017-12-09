@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下落的树叶-面向对象</title>
+	<style>
+		img{
+			position: absolute;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">下落</button>
+	<script>
+		function Leaf(){
+			this.pos = {
+				left: parseInt(Math.random()*1131),//0~1=>0~1130
+				top: 0
+			};
+
+			this.fall = function(){
+				var that = this;
+				setTimeout(function(){
+					setInterval(function(){
+						that.img.style.top = that.img.offsetTop + 10 + 'px';
+					}, 100);
+				}, parseInt(Math.random()*2000));
+			};
+			this.create = function(){
+				this.img = document.createElement('img');
+				this.img.src = 'img/'+(parseInt(Math.random()*4)+1)+'.png';
+				this.img.style.left = this.pos.left + 'px';
+				this.img.style.top = this.pos.top + 'px';
+				document.body.appendChild(this.img);
+			};
+		}
+
+		var aLeaf = [];
+		for(var i=0; i<8; i++){
+			var leaf = new Leaf();
+			leaf.create();
+			aLeaf.push(leaf);
+		}
+
+		var oBtn = document.getElementById('btn');
+		oBtn.onclick = function(){
+			for(var i=0; i<aLeaf.length; i++){
+				aLeaf[i].fall();
+			}
+		};
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

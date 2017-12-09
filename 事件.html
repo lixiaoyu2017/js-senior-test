@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">click</button>
+	<script>
+		var oBtn = document.getElementById('btn');
+		/*oBtn.onclick = function(){
+			alert(11);
+		};
+
+		oBtn.onclick = null;*/
+
+		/*oBtn.onclick = function(){
+			alert(22);
+		};*/
+		/*事件event：
+			1. 事件源
+			2. 事件处理函数
+			3. 事件*/
+
+		/*var aa = function (){
+			alert(111);
+		};*/
+
+		// var aa = new Function('alert(111)');
+
+		/*var bb = function (){
+			alert(111);
+		};*/
+
+		// var bb = new Function('alert(111)');
+
+		// alert(aa == bb);
+
+
+
+
+		/*var fn = function(){
+			alert(111);
+		};
+
+		oBtn.attachEvent('onclick', fn);
+
+		oBtn.detachEvent('onclick', fn);*/
+
+		/*oBtn.addEventListener('click', fn, false);
+
+		oBtn.removeEventListener('click', fn, false);*/
+
+		/*oBtn.addEventListener('click', function(){
+			alert(222);
+		}, false);*/
+
+		/*oBtn.attachEvent('onclick', function(){
+			alert(111);
+		});
+
+		oBtn.attachEvent('onclick', function(){
+			alert(222);
+		});*/
+
+		/*addEvent(oBtn, 'click', function(){
+			alert(111);
+		});*/
+
+		var fn1 = function(){
+			console.log(3333);
+		};
+
+		var fn2 = function(){
+			console.log(4444);
+		};
+
+		addEvent(oBtn, 'click', fn1);
+		addEvent(oBtn, 'click', fn2);
+
+		removeEvent(oBtn, 'click', fn1);
+		removeEvent(oBtn, 'click', fn2);
+
+
+		function addEvent(elem, type, fn){
+			if(elem.addEventListener){//chrome, firefox, safari
+				elem.addEventListener(type, fn, false);
+			}else if(elem.attachEvent){//ie
+				elem[type+fn] = function(){
+					fn.call(elem);
+				};
+				elem.attachEvent('on'+type, elem[type+fn]);
+			}else{
+				elem['on'+type] = fn;
+			}
+		}
+
+		function removeEvent(elem, type, fn){
+			if(elem.removeEventListener){
+				elem.removeEventListener(type, fn, false);
+			}else if(elem.detachEvent){
+				elem.detachEvent('on'+type, elem[type+fn]);
+			}else{
+				elem['on'+type] = null;
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

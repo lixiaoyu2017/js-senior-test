@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var obj = new Object();
+		obj.name = 'lisi';
+
+		function show(name, age){
+			console.log(name + ', ' + age);
+		}
+
+		show.call(obj, 'wangwu', 34);//==show("lisi");
+		show.apply(obj, ['wangwu', 34]);
+		/*var obj = new Object();
+
+		obj.call();*/
+	</script>
+</body>
+</html>
