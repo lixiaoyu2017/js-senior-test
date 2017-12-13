@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var str = "  ab c ";
+
+		function trim(str){
+			return str.replace(/^\s+|\s+$/g, '');
+		}
+		console.log(   trim(str).length   );
+		// console.log(   str.trim().length   );
+	</script>
+</body>
+</html>

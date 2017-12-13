@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var str = "http://www.qq.com:8080";
+		// var ss = "123";
+		// var re = new RegExp(ss);
+		var re = /(http:\/\/)(.+):(\d+)/;
+		console.log(   re.exec(str)   );
+	</script>
+</body>
+</html>
